@@ -1,0 +1,77 @@
+import math
+
+def main():
+    print("Scientific Calculator")
+    print("Available operations:")
+    print("1. Addition (+)")
+    print("2. Subtraction (-)")
+    print("3. Multiplication (*)")
+    print("4. Division (/)")
+    print("5. Square Root (sqrt)")
+    print("6. Exponentiation (^)")
+    print("7. Trigonometric Functions (sin, cos, tan)")
+    print("8. Natural Logarithm (ln)")
+    print("9. Quit (q)")
+
+    while True:
+        choice = input("Select an operation (1/2/3/4/5/6/7/8/9/q): ")
+
+        if choice == 'q':
+            print("Calculator is exiting. Goodbye!")
+            break
+
+        if choice in ('1', '2', '3', '4'):
+            num1 = float(input("Enter first number: "))
+            num2 = float(input("Enter second number: "))
+
+            if choice == '1':
+                result = num1 + num2
+                print("Result: ", result)
+            elif choice == '2':
+                result = num1 - num2
+                print("Result: ", result)
+            elif choice == '3':
+                result = num1 * num2
+                print("Result: ", result)
+            elif choice == '4':
+                if num2 == 0:
+                    print("Error: Division by zero")
+                else:
+                    result = num1 / num2
+                    print("Result: ", result)
+
+        elif choice == '5':
+            num = float(input("Enter a number: "))
+            result = math.sqrt(num)
+            print("Square Root: ", result)
+
+        elif choice == '6':
+            num = float(input("Enter a number: "))
+            exponent = float(input("Enter the exponent: "))
+            result = num ** exponent
+            print("Result: ", result)
+
+        elif choice == '7':
+            func = input("Enter a function (sin/cos/tan): ")
+            angle = float(input("Enter an angle in degrees: "))
+            if func == 'sin':
+                result = math.sin(math.radians(angle))
+            elif func == 'cos':
+                result = math.cos(math.radians(angle))
+            elif func == 'tan':
+                result = math.tan(math.radians(angle))
+            print(f"{func}({angle} degrees) = {result}")
+
+        elif choice == '8':
+            num = float(input("Enter a number: "))
+            if num <= 0:
+                print("Error: Natural logarithm is only defined for positive numbers.")
+            else:
+                result = math.log(num)
+                print("Natural Logarithm: ", result)
+
+        else:
+            print("Invalid input. Please select a valid operation.")
+
+if __name__ == "__main__":
+    main()
